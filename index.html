@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by fercsik (http://jsbin.com/cabevuw/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="colorClock">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+<style id="jsbin-css">
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+#colorClock {
+  text-align: center;
+  font-size: 4rem;
+  margin-top: 10%;
+  font-family: 'Pangolin', cursive;
+  color: blue;
+}
+</style>
+</head>
+<body>
+  <div id='colorClock'>12:12:12</div>
+<script id="jsbin-javascript">
+function setClock() {
+  var time = new Date();
+  var hours = time.getHours();
+  var minutes = time.getMinutes();
+  var seconds = time.getSeconds();
+  
+  if (hours<10) {
+    hours = '0' + hours;
+  }
+  
+  if (minutes<10) {
+    minutes = '0' + minutes;
+  }
+  
+  if (seconds<10) {
+    seconds = '0' + seconds;
+  }
+  
+  var colorClock = hours + ':' + minutes + ':' + seconds;
+  var backColor = '#'+hours+minutes+seconds;
+  
+  document.getElementById('colorClock').innerHTML = colorClock;
+  document.body.style.background=backColor;
+  
+  setTimeout(function() {setClock();}, 1000);
+  
+  
+  
+} 
+
+  
+setClock();
+
+
+
+</script>
+</body>
+</html>
